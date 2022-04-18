@@ -1,0 +1,23 @@
+{
+	"name": "automobile_backend",
+	"version": "1.0.0",
+	"main": "app.js",
+	"repository": "https://github.com/oleesir/automobile-backend.git",
+	"author": "oleesir <oleesir@gmail.com>",
+	"license": "MIT",
+	"scripts": {
+		"dev": "nodemon --exec babel-node ./src/app.js",
+		"build": "babel src -d dist"
+	},
+	"dependencies": {
+		"cors": "^2.8.5",
+		"express": "^4.17.3"
+	},
+	"devDependencies": {
+		"@babel/cli": "^7.17.6",
+		"@babel/core": "^7.17.9",
+		"@babel/node": "^7.16.8",
+		"@babel/preset-env": "^7.16.11",
+		"nodemon": "^2.0.15"
+	}
+}
