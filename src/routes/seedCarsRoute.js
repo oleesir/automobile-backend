@@ -1,8 +1,8 @@
-import { Router } from "express";
-import { seedCars } from "../database/seedData";
+// import { Router } from "express";
+// import { seedCars } from "../database/seedData";
 
-const router = Router();
+// const router = Router();
 
-router.post("/cars", seedCars);
+// router.post("/cars", seedCars);
 
-export default router;
+// export default router;
