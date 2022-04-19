@@ -7,3 +7,7 @@ export const createAdvert = async (model, item) => {
 	const createItem = await model.create(item);
 	return createItem;
 };
+
+export const deleteAdvert = async (model, item) => {
+	await model.findByIdAndDelete(item);
+};

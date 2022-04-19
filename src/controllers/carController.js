@@ -1,4 +1,4 @@
-import { postAdvertService, getAdvertService } from "../services/carService";
+import { postAdvertService, getAdvertService, deleteAdvertService } from "../services/carService";
 
 export const createAdvert = async (req, res) => {
 	try {
@@ -14,6 +14,16 @@ export const getAdvert = async (req, res) => {
 		const { id } = req.params;
 		const foundAdvert = await getAdvertService(id);
 		return res.status(200).json({ status: "success", foundAdvert });
+	} catch (error) {
+		return res.status(400).json({ status: "failed", error: error.message });
+	}
+};
+
+export const removeAdvert = async (req, res) => {
+	try {
+		const { id } = req.params;
+		await deleteAdvertService(id);
+		return res.status(200).json({ status: "success", message: "deleted successfully" });
 	} catch (error) {
 		return res.status(400).json({ status: "failed", error: error.message });
 	}

@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import routes from "./routes/index.js";
 import { database } from "./database/index";
+import sendError from "./helper/sendError.js";
 import dotenv from "dotenv";
 
 dotenv.config();
@@ -24,6 +25,7 @@ app.get("/", async (req, res) => {
 		message: "AUTOMOBILE BACKEND",
 	});
 });
+app.use(sendError);
 
 app.listen(port, () => {
 	console.log(`Server is running on port: ${port}`);
