@@ -3,14 +3,13 @@ import { notEmpty } from "../helper/notEmpty.js";
 
 export const createAdvertSchema = [
 	check("photo").trim().exists().withMessage("photo is required"),
-	check("name")
+	check("brand")
 		.trim()
 		.exists()
-		.withMessage("name is required")
-		.custom((value) => notEmpty(value, "Name field cannot be left blank"))
+		.withMessage("Brand is required")
+		.custom((value) => notEmpty(value, "brand field cannot be left blank"))
 		.isLength({ min: 2 })
-		.withMessage("Name should be be at least 2 characters"),
-	check("condition").optional().isIn(["New", "Used"]).withMessage("condtion can either be New or Used"),
+		.withMessage("Brand should be be at least 2 characters"),
 	check("model")
 		.trim()
 		.exists()
@@ -18,15 +17,6 @@ export const createAdvertSchema = [
 		.custom((value) => notEmpty(value, "Model field cannot be left blank"))
 		.isLength({ min: 2 })
 		.withMessage("Model should be be at least 2 characters"),
-	check("year")
-		.trim()
-		.exists()
-		.withMessage("Year is required")
-		.custom((value) => notEmpty(value, "Year field cannot be left blank"))
-		.isInt()
-		.withMessage("Enter a valid year")
-		.isLength({ min: 4 })
-		.withMessage("Enter a valid year"),
 	check("price")
 		.trim()
 		.exists()
