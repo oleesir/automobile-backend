@@ -1,9 +1,14 @@
-import { postAdvertService, getAdvertService, deleteAdvertService, getAllAdvertService } from "../services/carService";
+import {
+	postAdvertService,
+	getAdvertService,
+	deleteAdvertService,
+	getAllAdvertService,
+} from "../services/advertService";
 
 export const createAdvert = async (req, res) => {
 	try {
-		const newAdvert = await postAdvertService(req.body, req.file);
-		return res.status(201).json({ status: "success", newAdvert });
+		const data = await postAdvertService(req.body, req.file);
+		return res.status(201).json({ status: "success", data });
 	} catch (err) {
 		return res.status(400).json({ status: "failed", err });
 	}
@@ -12,8 +17,8 @@ export const createAdvert = async (req, res) => {
 export const getAdvert = async (req, res) => {
 	try {
 		const { id } = req.params;
-		const foundAdvert = await getAdvertService(id);
-		return res.status(200).json({ status: "success", foundAdvert });
+		const data = await getAdvertService(id);
+		return res.status(200).json({ status: "success", data });
 	} catch (error) {
 		return res.status(400).json({ status: "failed", error: error.message });
 	}
@@ -21,8 +26,8 @@ export const getAdvert = async (req, res) => {
 
 export const getAllAdvert = async (req, res) => {
 	try {
-		const foundAdvert = await getAllAdvertService();
-		return res.status(200).json({ status: "success", foundAdvert });
+		const data = await getAllAdvertService();
+		return res.status(200).json({ status: "success", data });
 	} catch (error) {
 		return res.status(400).json({ status: "failed", error: error.message });
 	}

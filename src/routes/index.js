@@ -1,8 +1,8 @@
 import { Router } from "express";
-import carRoute from "./carRoute.js";
+import advertRoute from "./advertRoute.js";
 
 const router = Router();
 
-router.use("/advert", carRoute);
+router.use("/adverts", advertRoute);
 
 export default router;
