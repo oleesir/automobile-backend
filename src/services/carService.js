@@ -1,5 +1,5 @@
 import Car from "../database/model/carModel";
-import { createAdvert, findAdvert, deleteAdvert } from "./modelService";
+import { createAdvert, findAdvert, deleteAdvert, viewAllAdvert } from "./modelService";
 import cloudinary from "cloudinary";
 import dotenv from "dotenv";
 dotenv.config();
@@ -45,6 +45,18 @@ export const getAdvertService = async (id) => {
 export const deleteAdvertService = async (id) => {
 	try {
 		await deleteAdvert(Car, id);
+	} catch (error) {
+		throw error;
+	}
+};
+
+export const getAllAdvertService = async () => {
+	try {
+		const data = await viewAllAdvert(Car);
+		if (!data) {
+			throw new Error("Cars are not available");
+		}
+		return data;
 	} catch (error) {
 		throw error;
 	}
