@@ -11,3 +11,8 @@ export const createAdvert = async (model, item) => {
 export const deleteAdvert = async (model, item) => {
 	await model.findByIdAndDelete(item);
 };
+
+export const viewAllAdvert = async (model) => {
+	const allItem = await await model.find();
+	return allItem;
+};
