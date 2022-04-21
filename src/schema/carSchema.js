@@ -17,6 +17,13 @@ export const createAdvertSchema = [
 		.custom((value) => notEmpty(value, "Model field cannot be left blank"))
 		.isLength({ min: 2 })
 		.withMessage("Model should be be at least 2 characters"),
+	check("description")
+		.trim()
+		.exists()
+		.withMessage("Say something about the car")
+		.custom((value) => notEmpty(value, "brand field cannot be left blank"))
+		.isLength({ min: 2 })
+		.withMessage("Brand should be be at least 2 characters"),
 	check("price")
 		.trim()
 		.exists()
@@ -31,10 +38,8 @@ export const createAdvertSchema = [
 		.custom((value) => notEmpty(value, "Sellers name cannot be left blank"))
 		.isLength({ min: 2 })
 		.withMessage("Seller should be be at least 2 characters")
-		.isAlpha()
-		.withMessage("name should contain only alphabets")
 		.customSanitizer((name) => name.toLowerCase()),
-	check("sellerNumber")
+	check("phoneNumber")
 		.trim()
 		.exists()
 		.withMessage("Phone number is required")

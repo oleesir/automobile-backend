@@ -10,7 +10,6 @@ export const database = async () => {
 		});
 		console.log("Database connected successfully");
 	} catch (error) {
-		console.log(error);
 		console.log("Database connection failed");
 	}
 };
