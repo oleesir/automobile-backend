@@ -5,20 +5,27 @@
 	"repository": "https://github.com/oleesir/automobile-backend.git",
 	"author": "oleesir <oleesir@gmail.com>",
 	"license": "MIT",
+	"engines": {
+		"node": "16.x"
+	},
 	"scripts": {
 		"dev": "nodemon --exec babel-node ./src/app.js",
 		"seed": "babel-node ./src/database/seed/car-seeder.js",
-		"build": "babel src -d dist"
+		"clean": "rm -rf dist",
+		"build": "npm run clean && babel src -d dist",
+		"start": "node ./dist/app.js"
 	},
 	"dependencies": {
 		"cloudinary": "^1.29.1",
+		"core-js": "^3.22.2",
 		"cors": "^2.8.5",
 		"dotenv": "^16.0.0",
 		"express": "^4.17.3",
 		"express-validator": "^6.14.0",
 		"mongoose": "^6.3.0",
 		"multer": "^1.4.4",
-		"path": "^0.12.7"
+		"path": "^0.12.7",
+		"regenerator-runtime": "^0.13.9"
 	},
 	"devDependencies": {
 		"@babel/cli": "^7.17.6",
